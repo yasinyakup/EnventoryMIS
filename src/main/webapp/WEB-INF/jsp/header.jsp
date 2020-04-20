@@ -17,7 +17,7 @@ pageEncoding="utf-8"%>
         <meta name="author" content="" />
         <title>Kalyon Elektronik&Elektrik&Mekanik Yedek Parça Yönetim Sistemi</title>
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

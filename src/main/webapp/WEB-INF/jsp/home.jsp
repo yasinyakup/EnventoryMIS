@@ -18,10 +18,10 @@ pageEncoding="utf-8"%>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Ingot</h1>
+                        <h1 class="mt-4">Ana Sayfa</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="#">Lokasyon</a></li>
-                            <li class="breadcrumb-item active">Ingot</li>
+                            <li class="breadcrumb-item"><a href="#">Ana sayfa</a></li>
+                            <li class="breadcrumb-item active">Materyal Kullanım Durumu</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -90,10 +90,9 @@ pageEncoding="utf-8"%>
                 <jsp:include page="footer.jsp" /> 
             </div>
             </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-  
+     
     </body>
 </html>

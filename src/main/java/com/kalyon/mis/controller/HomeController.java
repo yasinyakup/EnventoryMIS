@@ -81,7 +81,8 @@ public class HomeController {
 	
 	@GetMapping("/employees")
 	public String goEmployees(Model model) {
-		
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("workshops", workshopRepository.findAll());
 		model.addAttribute("employees", employeeRepository.findAll());
 		return "employees";
 	}
@@ -89,20 +90,24 @@ public class HomeController {
 	
 	@GetMapping("/users")
 	public String goUsers(Model model) {
-		
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("workshops", workshopRepository.findAll());
 		model.addAttribute("users", userRepository.findAll());
 		return "users";
 	}
 	
 	
 	@GetMapping("/tables")
-	public String goTables() {
-		
+	public String goTables(Model model) {
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("workshops", workshopRepository.findAll());
 		return "tables";
 	}
 	
 	@GetMapping("/items")
 	public String goItems(Model model) {
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("workshops", workshopRepository.findAll());
 		model.addAttribute("items", itemRepository.findAll());
 		return "items";
 	}
