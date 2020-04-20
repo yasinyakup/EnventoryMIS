@@ -39,6 +39,11 @@
 								<div class="card-header bg-secondary text-light">
 									<h3 class="text-center font-weight-light my-2">KAYIT
 										İŞLEMLERİ</h3>
+										<c:if test="${!empty(msg)}">
+												<div class="text-danger">
+													<span>${msg}</span>
+												</div>
+											</c:if>
 								</div>
 								<div class="card-body">
 									<form:form method="post" action="/registerEmp"

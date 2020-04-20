@@ -24,6 +24,7 @@ import com.kalyon.mis.repository.EmployeeRepository;
 import com.kalyon.mis.repository.ItemRepository;
 import com.kalyon.mis.repository.ItemUsageRepository;
 import com.kalyon.mis.repository.PositionRepository;
+import com.kalyon.mis.repository.UserRepository;
 import com.kalyon.mis.repository.WorkshopRepository;
 import com.kalyon.mis.service.PositionEditor;
 
@@ -44,6 +45,12 @@ public class HomeController {
 	
 	@Autowired
 	private DepartmentRepository departmentRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private ItemRepository itemRepository;
@@ -73,10 +80,20 @@ public class HomeController {
 	}
 	
 	@GetMapping("/employees")
-	public String goEmployees() {
+	public String goEmployees(Model model) {
 		
+		model.addAttribute("employees", employeeRepository.findAll());
 		return "employees";
 	}
+	
+	
+	@GetMapping("/users")
+	public String goUsers(Model model) {
+		
+		model.addAttribute("users", userRepository.findAll());
+		return "users";
+	}
+	
 	
 	@GetMapping("/tables")
 	public String goTables() {
@@ -84,11 +101,17 @@ public class HomeController {
 		return "tables";
 	}
 	
+	@GetMapping("/items")
+	public String goItems(Model model) {
+		model.addAttribute("items", itemRepository.findAll());
+		return "items";
+	}
 	
 	@ModelAttribute("login")
 	public Login defaultLogin() {
 		return new Login();
 	}
+	
 	
 	
 	@ModelAttribute("newEmp")

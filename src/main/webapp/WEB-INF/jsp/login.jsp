@@ -37,6 +37,11 @@
 							<div class="card shadow-lg border-0 rounded-lg mt-5">
 								<div class="card-header bg-secondary text-light">
 									<h3 class="text-center font-weight-light my-4">GİRİŞ</h3>
+									<c:if test="${!empty(msg)}">
+												<div class="text-danger">
+													<span>${msg}</span>
+												</div>
+											</c:if>
 								</div>
 								<div class="card-body">
 									<form:form method="post" action="/userLogin"
@@ -61,11 +66,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<c:if test="${!empty(msg)}">
-												<div class="text-danger">
-													<span>${msg}</span>
-												</div>
-											</c:if>
+											
 											<div class="custom-control custom-checkbox">
 												<input class="custom-control-input"
 													id="rememberPasswordCheck" type="checkbox" /><label

@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -46,7 +48,7 @@ public class Employee implements Serializable {
 	@NotEmpty
 	private String gender;
 	
-	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(iso = ISO.DATE)
 	private Date dob;
 	
@@ -61,6 +63,7 @@ public class Employee implements Serializable {
 	private Department department;
 	
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "begin_date")
 	private Date beginDate;

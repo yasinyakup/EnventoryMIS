@@ -13,7 +13,7 @@ pageEncoding="utf-8"%>
      <jsp:include page="header.jsp"></jsp:include>
       <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-    		<jsp:include page="sidenav.jsp"></jsp:include>
+    		<%@ include file="sidenav.jsp" %>
     		</div>
             <div id="layoutSidenav_content">
                 <main>
@@ -33,25 +33,25 @@ pageEncoding="utf-8"%>
 						        <thead>
 							        <tr class="bg-muted  bg-light font-weight-bold">
 								        <td>Malzeme Adı</td>
-								        <td>Kullanan Personal</td>
-								        <td>Kullanılan Ekipman</td>
-								        <td>Miktar</td>
+								        <td>Stok</td>
 								        <td>Birim</td>
-								        <td>Tarih</td>
 								        <td>Açıklama</td>
+								        <td>Kategori</td>
+								        <td>EKipman</td>
+								        <td>Lokasyon</td>
 							        </tr>
 						        </thead>
-						        <c:if test="${!empty(itemUsages)}">
+						        <c:if test="${!empty(items)}">
 						         <tbody>
-						         <c:forEach items="${itemUsages}" var="itemUsage">
+						         <c:forEach items="${items}" var="item">
 							        <tr>
-								        <td >${itemUsage.item.name}</td>
-								        <td>${itemUsage.user.name}</td>
-								        <td>${itemUsage.equipment.name}</td>
-								        <td>${itemUsage.qty}</td>
-								        <td>${itemUsage.unit.name}</td>
-								        <td>${itemUsage.useDate}</td>
-								        <td>${itemUsage.description}</td>
+								        <td >${item.name}</td>
+								        <td>${item.qty}</td>
+								        <td>${item.unit.name}</td>
+								        <td>${item.description}</td>
+								        <td>${item.category.name}</td>
+								        <td>${item.equipment.name}</td>
+								        <td>${item.location.name}</td>
 							        </tr>
 							        </c:forEach>
 							      

@@ -18,40 +18,36 @@ pageEncoding="utf-8"%>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Ingot</h1>
+                        <h1 class="mt-4">Arayüzler</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="#">Lokasyon</a></li>
-                            <li class="breadcrumb-item active">Ingot</li>
+                            <li class="breadcrumb-item"><a href="#">Arayüz</a></li>
+                            <li class="breadcrumb-item active">Kullanıcılar</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
                             
                             
-                             <h4>Son Hareketler</h4>
+                             <h4>Kullanıcı Listesi</h4>
                              <div class="table-responsive">
 						        <table class="table table-bordered table-hover">
 						        <thead>
 							        <tr class="bg-muted  bg-light font-weight-bold">
-								        <td>Malzeme Adı</td>
-								        <td>Kullanan Personal</td>
-								        <td>Kullanılan Ekipman</td>
-								        <td>Miktar</td>
-								        <td>Birim</td>
-								        <td>Tarih</td>
-								        <td>Açıklama</td>
+								        <td>Kullanıcı Adı</td>
+								        <td>Şifre</td>
+								        <td>Aktif</td>
+								        <td>Sicil No</td>
+								        <td>Yetki</td>
 							        </tr>
 						        </thead>
-						        <c:if test="${!empty(itemUsages)}">
+						        <c:if test="${!empty(users)}">
 						         <tbody>
-						         <c:forEach items="${itemUsages}" var="itemUsage">
+						         <c:forEach items="${users}" var="user">
 							        <tr>
-								        <td >${itemUsage.item.name}</td>
-								        <td>${itemUsage.user.name}</td>
-								        <td>${itemUsage.equipment.name}</td>
-								        <td>${itemUsage.qty}</td>
-								        <td>${itemUsage.unit.name}</td>
-								        <td>${itemUsage.useDate}</td>
-								        <td>${itemUsage.description}</td>
+								        <td >${user.name}</td>
+								        <td>${user.password}</td>
+								        <td>${user.active}</td>
+								        <td>${user.employee.empCode}</td>
+								        <td>${user.role.name}</td>
 							        </tr>
 							        </c:forEach>
 							      

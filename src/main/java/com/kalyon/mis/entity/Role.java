@@ -25,5 +25,14 @@ public class Role {
 		this.name = name;
 	}
 	private String name;
+	public Role(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public Role() {
+	}
+	
+	
 
 }

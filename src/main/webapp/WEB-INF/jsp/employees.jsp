@@ -18,40 +18,42 @@
 	<div id="layoutSidenav_content">
 		<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">Ingot</h1>
+				<h1 class="mt-4">Arayüzler</h1>
 				<ol class="breadcrumb mb-4">
-					<li class="breadcrumb-item"><a href="#">Lokasyon</a></li>
-					<li class="breadcrumb-item active">Ingot</li>
+					<li class="breadcrumb-item"><a href="#">Arayüz</a></li>
+					<li class="breadcrumb-item active">Personel</li>
 				</ol>
 				<div class="card mb-4">
 					<div class="card-body">
 
 
-						<h4>Son Hareketler</h4>
+						<h4>Personel Listesi</h4>
 						<div class="table-responsive">
 							<table class="table table-bordered table-hover">
 								<thead>
 									<tr class="bg-muted  bg-light font-weight-bold">
-										<td>Malzeme Adı</td>
-										<td>Kullanan Personal</td>
-										<td>Kullanılan Ekipman</td>
-										<td>Miktar</td>
+										<td>Adı</td>
+										<td>Soyadı</td>
+										<td>Cinsiyet</td>
+										<td>Doğum Tarihi</td>
+										<td>Görev</td>
 										<td>Birim</td>
-										<td>Tarih</td>
-										<td>Açıklama</td>
+										<td>İşe Başlama Tarihi</td>
+										<td>Sicil No</td>
 									</tr>
 								</thead>
-								<c:if test="${!empty(itemUsages)}">
+								<c:if test="${!empty(employees)}">
 									<tbody>
-										<c:forEach items="${itemUsages}" var="itemUsage">
+										<c:forEach items="${employees}" var="employee">
 											<tr>
-												<td>${itemUsage.item.name}</td>
-												<td>${itemUsage.user.name}</td>
-												<td>${itemUsage.equipment.name}</td>
-												<td>${itemUsage.qty}</td>
-												<td>${itemUsage.unit.name}</td>
-												<td>${itemUsage.useDate}</td>
-												<td>${itemUsage.description}</td>
+												<td>${employee.firstName}</td>
+												<td>${employee.lastName}</td>
+												<td>${employee.gender}</td>
+												<td>${employee.dob}</td>
+												<td>${employee.position.name}</td>
+												<td>${employee.department.name}</td>
+												<td>${employee.beginDate}</td>
+												<td>${employee.empCode}</td>
 											</tr>
 										</c:forEach>
 
