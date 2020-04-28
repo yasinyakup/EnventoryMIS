@@ -38,7 +38,7 @@ pageEncoding="utf-8"%>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="settings">Ayarlar</a><a class="dropdown-item" href="log">Log Kayıtları</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login">Çıkış yap</a>
+                        <a class="dropdown-item" href="logout">Çıkış yap</a>
                     </div>
                 </li>
             </ul>

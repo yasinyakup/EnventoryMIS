@@ -1,6 +1,7 @@
 package com.kalyon.mis.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
+	@Column(nullable = false, unique = true)
 	private String name;
 	
 	private String password;

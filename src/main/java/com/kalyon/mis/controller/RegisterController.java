@@ -3,6 +3,7 @@ package com.kalyon.mis.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,7 +24,7 @@ import javassist.expr.NewArray;
 @Controller
 public class RegisterController {
 	
-	private static final String INIT_PASSWORD = "12345";
+	private static final String INIT_PASSWORD = new BCryptPasswordEncoder().encode("12345");
 	private static final Role INIT_ROLE =new Role(2L, "user");
 
 	@Autowired
@@ -39,8 +40,8 @@ public class RegisterController {
 			//employeeRepository.save(employee);
 			userRepository.save(new User(employee.getEmpCode(), INIT_PASSWORD, false, employee, INIT_ROLE ));
 			model.addAttribute("msg", "Kayıt başarılı!");
-			System.out.println("sisteme kayd edildi");
-			return "login";
+			System.out.println("sisteme kayd edildi"+ INIT_PASSWORD);
+			return "home";
 		} else {
 			model.addAttribute("msg", "Kayıt başarısız!");
 			return "register";

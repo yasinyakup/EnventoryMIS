@@ -29,24 +29,41 @@ public class LoginController {
 	@Autowired
 	private WorkshopRepository workshopRepository;
 	
+//	@PostMapping("/userLogin")
+//	public String authenticated(@Valid @ModelAttribute("login") Login login, BindingResult result, Model model) {
+//
+//		User user = userRepository.findByNameAndPassword(login.getUserName(), login.getPassword());
+//		if (!result.hasErrors()) {
+//			if (user != null) {
+//				model.addAttribute("msg", "Giriş Başarılı!");
+//				model.addAttribute("categories", categoryRepository.findAll());
+//				model.addAttribute("workshops", workshopRepository.findAll());
+//				return "home";
+//			}else {
+//				model.addAttribute("msg", "Kullanıcı adı veya şifre yanlış");
+//				return "login";
+//			}
+//
+//		} else {
+//			return "login";
+//		}
+//
+//	}
+//	
+	
+	
+	
 	@PostMapping("/userLogin")
-	public String authenticated(@Valid @ModelAttribute("login") Login login, BindingResult result, Model model) {
+	public String authenticated(Model model) {
 
-		User user = userRepository.findByNameAndPassword(login.getUserName(), login.getPassword());
-		if (!result.hasErrors()) {
-			if (user != null) {
+	
 				model.addAttribute("msg", "Giriş Başarılı!");
 				model.addAttribute("categories", categoryRepository.findAll());
 				model.addAttribute("workshops", workshopRepository.findAll());
 				return "home";
-			}else {
-				model.addAttribute("msg", "Kullanıcı adı veya şifre yanlış");
-				return "login";
-			}
-
-		} else {
-			return "login";
-		}
-
+		
 	}
+	
+	
+	
 }

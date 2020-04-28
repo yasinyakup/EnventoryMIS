@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -72,6 +73,13 @@ public class HomeController {
 		return "login";
 	}
 	
+	@GetMapping("/logout")
+	public String goLogout(Model model) {
+		
+		model.addAttribute("msg", "Güvenli Çıkış Yaptırnız");		
+		return "login";
+	}
+	
 	
 	@GetMapping("/register")
 	public String goRegister() {
@@ -80,6 +88,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/employees")
+	@PreAuthorize("hasRole('ROLE_USER')||hasRole('ROLE_ADMIN')")
 	public String goEmployees(Model model) {
 		model.addAttribute("categories", categoryRepository.findAll());
 		model.addAttribute("workshops", workshopRepository.findAll());
@@ -89,6 +98,7 @@ public class HomeController {
 	
 	
 	@GetMapping("/users")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String goUsers(Model model) {
 		model.addAttribute("categories", categoryRepository.findAll());
 		model.addAttribute("workshops", workshopRepository.findAll());
@@ -105,6 +115,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/items")
+	@PreAuthorize("hasRole('ROLE_USER')||hasRole('ROLE_ADMIN')")
 	public String goItems(Model model) {
 		model.addAttribute("categories", categoryRepository.findAll());
 		model.addAttribute("workshops", workshopRepository.findAll());
