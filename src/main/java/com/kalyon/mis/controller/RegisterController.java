@@ -41,7 +41,7 @@ public class RegisterController {
 			userRepository.save(new User(employee.getEmpCode(), INIT_PASSWORD, false, employee, INIT_ROLE ));
 			model.addAttribute("msg", "Kayıt başarılı!");
 			System.out.println("sisteme kayd edildi"+ INIT_PASSWORD);
-			return "home";
+			return "/login";
 		} else {
 			model.addAttribute("msg", "Kayıt başarısız!");
 			return "register";

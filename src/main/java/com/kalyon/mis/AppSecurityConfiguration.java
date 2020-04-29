@@ -62,16 +62,18 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().authorizeRequests().antMatchers("/", "/home","/register", "/css/*", "/js/*").permitAll().anyRequest()
-				.authenticated().and().formLogin();
-//				.loginPage("/login").permitAll()
-//				.loginProcessingUrl("/userLogin")
-//				.defaultSuccessUrl("/home", true)
-//				.and()
-//				.logout().invalidateHttpSession(true)
-//				.clearAuthentication(true)
-//				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.logoutSuccessUrl("/login").permitAll();
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/home","/register", "/css/*", "/js/*","/registerEmp").permitAll().anyRequest()
+				.authenticated().and().formLogin()
+				.loginPage("/login").defaultSuccessUrl("/home").failureUrl("/login")
+				.permitAll()
+				.and()
+				.logout().invalidateHttpSession(true)
+				.clearAuthentication(true)
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.permitAll()
+				.and()
+				.exceptionHandling()
+				.accessDeniedPage("/login?msg=Yetkiniz Yok!");
 	}
 
 //	

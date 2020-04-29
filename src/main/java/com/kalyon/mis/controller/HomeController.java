@@ -73,6 +73,12 @@ public class HomeController {
 		return "login";
 	}
 	
+	@GetMapping("/test")
+	public String goTest() {
+		
+		return "test";
+	}
+	
 	@GetMapping("/logout")
 	public String goLogout(Model model) {
 		

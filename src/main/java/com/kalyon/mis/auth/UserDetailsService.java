@@ -9,24 +9,23 @@ import com.kalyon.mis.entity.User;
 import com.kalyon.mis.repository.UserRepository;
 
 @Service
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService{
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
 	@Autowired
 	UserRepository userRepository;
-	
-	
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		User user = this.userRepository.findByName(username);
-		
+
 		if (user == null) {
-			throw new UsernameNotFoundException("cannot find username: "+username);
+			System.out.println("user not found");
+			throw new UsernameNotFoundException("cannot find username: " + username);			
 		}
-		
+		System.out.println("user found");
+
 		return new UserPrinciple(user);
 	}
-	
 
 }
