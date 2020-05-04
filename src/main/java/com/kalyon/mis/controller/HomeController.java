@@ -3,6 +3,8 @@ package com.kalyon.mis.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -41,11 +43,11 @@ public class HomeController {
 	@Autowired
 	private ItemUsageRepository itemUsageRepository;
 	
-	@Autowired
-	private PositionRepository positionRepository;
-	
-	@Autowired
-	private DepartmentRepository departmentRepository;
+//	@Autowired
+//	private PositionRepository positionRepository;
+//	
+//	@Autowired
+//	private DepartmentRepository departmentRepository;
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -68,7 +70,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/login")
-	public String goLogin() {
+	public String goLogin(Model model) {
 		
 		return "login";
 	}
@@ -129,31 +131,31 @@ public class HomeController {
 		return "items";
 	}
 	
-	@ModelAttribute("login")
-	public Login defaultLogin() {
-		return new Login();
-	}
-	
-	
-	
-	@ModelAttribute("newEmp")
-	public Employee defaultEmployee() {
-		return new Employee();
-	}
-	
-	
-	@ModelAttribute("positionItems")
-	public List<Position> getPositionNames() {
-		//return positionRepository.findAll().stream().map(Position::getName).collect(Collectors.toList());
-		return positionRepository.findAll();
-	}
-	
-	
-	@ModelAttribute("departmentItems")
-	public List<Department> getDepartmentNames() {
-		//return positionRepository.findAll().stream().map(Position::getName).collect(Collectors.toList());
-		return departmentRepository.findAll();
-	}
+//	@ModelAttribute("login")
+//	public Login defaultLogin() {
+//		return new Login();
+//	}
+//	
+//	
+//	
+//	@ModelAttribute("newEmp")
+//	public Employee defaultEmployee() {
+//		return new Employee();
+//	}
+//	
+//	
+//	@ModelAttribute("positionItems")
+//	public List<Position> getPositionNames() {
+//		//return positionRepository.findAll().stream().map(Position::getName).collect(Collectors.toList());
+//		return positionRepository.findAll();
+//	}
+//	
+//	
+//	@ModelAttribute("departmentItems")
+//	public List<Department> getDepartmentNames() {
+//		//return positionRepository.findAll().stream().map(Position::getName).collect(Collectors.toList());
+//		return departmentRepository.findAll();
+//	}
 	
 //	@InitBinder
 //	public void initBinder(WebDataBinder binder) {

@@ -62,7 +62,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().authorizeRequests().antMatchers("/", "/home","/register", "/css/*", "/js/*","/registerEmp").permitAll().anyRequest()
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/api/v1/employees", "/home","/register", "/css/*", "/js/*","/registerEmp").permitAll().anyRequest()
 				.authenticated().and().formLogin()
 				.loginPage("/login").defaultSuccessUrl("/home").failureUrl("/login")
 				.permitAll()
