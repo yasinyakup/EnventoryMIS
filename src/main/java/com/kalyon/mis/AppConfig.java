@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -18,6 +19,7 @@ import com.kalyon.mis.repository.PositionRepository;
 
 
 @Configuration
+@CrossOrigin(origins = "*")
 @ComponentScan(basePackages = {"com.kalyon.mis.controller", "com.kalyon.mis.repository", "com.kalyon.mis.entity","com.kalyon.mis.converter"})
 public class AppConfig extends WebMvcConfigurationSupport {
 	

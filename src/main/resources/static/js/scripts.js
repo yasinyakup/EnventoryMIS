@@ -21,10 +21,3 @@
     });
 })(jQuery);
     
-    
-    
-    
-    
-    $(function () {
-        $('#datetimepicker').datetimepicker();
-    });

@@ -54,7 +54,6 @@ public class Employee implements Serializable {
 	private Date dob;
 	
 	@NotNull
-	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "position_id")
 	private Position position;
 	

@@ -122,6 +122,13 @@ public class HomeController {
 		return "tables";
 	}
 	
+	@GetMapping("/file")
+	public String goFiles(Model model) {
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("workshops", workshopRepository.findAll());
+		return "file";
+	}
+	
 	@GetMapping("/items")
 	@PreAuthorize("hasRole('ROLE_USER')||hasRole('ROLE_ADMIN')")
 	public String goItems(Model model) {
